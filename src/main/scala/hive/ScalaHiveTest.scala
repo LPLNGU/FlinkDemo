@@ -1,0 +1,5 @@
+package hive
+
+object ScalaHiveTest {
+
+}
