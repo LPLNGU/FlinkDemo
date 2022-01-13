@@ -349,62 +349,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.calcite</groupId>
-      <artifactId>calcite-core</artifactId>
-      <version>1.16.0</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>avatica-core</artifactId>
-          <groupId>org.apache.calcite.avatica</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>calcite-linq4j</artifactId>
-          <groupId>org.apache.calcite</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-dbcp</artifactId>
-          <groupId>commons-dbcp</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>esri-geometry-api</artifactId>
-          <groupId>com.esri.geometry</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jackson-core</artifactId>
-          <groupId>com.fasterxml.jackson.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jackson-databind</artifactId>
-          <groupId>com.fasterxml.jackson.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>sketches-core</artifactId>
-          <groupId>com.yahoo.datasketches</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>aggdesigner-algorithm</artifactId>
-          <groupId>net.hydromatic</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>janino</artifactId>
-          <groupId>org.codehaus.janino</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-compiler</artifactId>
-          <groupId>org.codehaus.janino</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jackson-annotations</artifactId>
-          <groupId>com.fasterxml.jackson.core</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-lang3</artifactId>
-          <groupId>org.apache.commons</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-streaming-scala_2.11</artifactId>
       <version>1.11.1</version>
@@ -445,26 +389,20 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.7</version>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-json</artifactId>
+      <version>1.11.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.7</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-csv</artifactId>
+      <version>1.11.1</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
   <properties>
-    <sn.flink.version>1.11.1.4</sn.flink.version>
+    <sn.flink.version>1.11.1.6</sn.flink.version>
     <provided.scope>provided</provided.scope>
     <hbase.version>1.2.6</hbase.version>
     <scala.verion>2.11</scala.verion>

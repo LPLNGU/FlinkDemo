@@ -8,7 +8,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 /**
  * @author 20017959
  * @version 1.0
- * @description: TODO 测试维表关联
+ * @description: 测试维表关联
  * @date 2021/11/29 10:58
  */
 public class TestCache {

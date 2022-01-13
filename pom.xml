@@ -12,8 +12,8 @@
         <scala.verion>2.11</scala.verion>
         <hbase.version>1.2.6</hbase.version>
         <hadoop.version>2.9.1.1</hadoop.version>
-        <sn.flink.version>1.11.1.4</sn.flink.version>
-        <provided.scope>provided</provided.scope>
+        <sn.flink.version>1.11.1.6</sn.flink.version>
+        <provided.scope>compile</provided.scope>
     </properties>
 
     <dependencies>
@@ -21,13 +21,13 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version> <!-- 目前只有雨花prd的hadoop版本是2.4.0.22，其他的环境hadoop版均是2.9.1.1 -->
-            <!--            <scope>provided</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-yarn-api</artifactId>
             <version>3.3.0</version>
-            <!--            <scope>provided</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
 
@@ -35,7 +35,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
 
@@ -44,7 +44,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
             <version>${flink.version}</version>
-            <!--                <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -56,7 +56,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
 
@@ -72,14 +72,14 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-blink_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <!-- 提供jdbc的连接器的，可以连接数据库 -->
@@ -87,35 +87,35 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-jdbc_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.26</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.calcite</groupId>
-            <artifactId>calcite-core</artifactId>
-            <version>1.16.0</version>
-            <!--            <scope>${provided.scope}</scope>-->
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.calcite</groupId>-->
+        <!--            <artifactId>calcite-core</artifactId>-->
+        <!--            <version>1.16.0</version>-->
+        <!--            &lt;!&ndash;            <scope>${provided.scope}</scope>&ndash;&gt;-->
+        <!--        </dependency>-->
 
         <!--   scala user  -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-scala_2.11</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-common</artifactId>
             <version>${flink.version}</version>
-            <!--            <scope>${provided.scope}</scope>-->
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <dependency>
@@ -126,34 +126,52 @@
 
         <!-- Log Start -->
         <!-- 方便本地调试可以使用log4j做日志适配，日志输出统一使用Slf4j门面进行输出，需要将log4j.properties放到class path -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.7</version>
-            <!--            <scope>${provided.scope}</scope>-->
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-api</artifactId>-->
+        <!--            <version>1.7.7</version>-->
+        <!--            &lt;!&ndash;            <scope>${provided.scope}</scope>&ndash;&gt;-->
+        <!--        </dependency>-->
 
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.7</version>
-            <!--            <scope>${provided.scope}</scope>-->
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-log4j12</artifactId>-->
+        <!--            <version>1.7.7</version>-->
+        <!--            &lt;!&ndash;            <scope>${provided.scope}</scope>&ndash;&gt;-->
+        <!--        </dependency>-->
 
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-            <!--            <scope>${provided.scope}</scope>-->
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>log4j</groupId>-->
+        <!--            <artifactId>log4j</artifactId>-->
+        <!--            <version>1.2.17</version>-->
+        <!--            &lt;!&ndash;            <scope>${provided.scope}</scope>&ndash;&gt;-->
+        <!--        </dependency>-->
         <!-- Log End -->
 
-        <!--flink connect-->
+        <!--flink connector-->
 
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka_2.11</artifactId>
+            <version>${flink.version}</version>
+<!--            <scope>${provided.scope}</scope>-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.kafka</groupId>
+                    <artifactId>kafka-clients</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-filesystem_2.11</artifactId>
             <version>${flink.version}</version>
         </dependency>
 
@@ -167,12 +185,14 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-json</artifactId>
             <version>${flink.version}</version>
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-csv</artifactId>
             <version>${flink.version}</version>
+            <scope>${provided.scope}</scope>
         </dependency>
 
         <!--        <dependency>-->
@@ -221,7 +241,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
-            <!--            <scope>compile</scope>-->
+            <scope>compile</scope>
         </dependency>
 
 

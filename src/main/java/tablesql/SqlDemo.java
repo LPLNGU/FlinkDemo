@@ -73,14 +73,15 @@ public class SqlDemo {
 //        join result table
         Table table = tEnv.sqlQuery(
                 "SELECT\n" +
-                        "    userName,\n" +
-                        "    product,\n" +
-                        "    amount\n" +
-                        "FROM\n" +
-                        "    orders,\n" +
-                        "    user_table\n" +
-                        "WHERE\n" +
-                        "    orders.userId = user_table.userId");
+                "    userName,\n" +
+                "    product,\n" +
+                "    amount\n" +
+                "FROM\n" +
+                "    user_table\n" +
+                "    LEFT JOIN \n" +
+                "        orders \n" +
+                "    ON \n" +
+                "        user_table.userId = orders.userId");
 
         //groupby,使用retractStream对groupBy sql进行输出
 //        Table table = tEnv.sqlQuery("SELECT userId,sum(amount) as boughtSum " +
@@ -96,7 +97,7 @@ public class SqlDemo {
         resStream.print();
 
         /*  data
-            {"userId":"ddd","product":"apple","amount":1}
+
             {"userId":"111","product":"banana","amount":3}
             {"userId":"abc","product":"peer","amount":4}
          * */

@@ -50,12 +50,9 @@ public class Demo {
             }
         });
 
-//        lessThanZero.print();
         Iterator<Integer> collect = DataStreamUtils.collect(lessThanZero);
         lessThanZero.print();
         env.execute("Iterator Test");
-
-
     }
 }
 
