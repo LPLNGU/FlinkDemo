@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package windowing;
+package window;
 
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import windowing.util.WordCountData;
+import window.util.WordCountData;
 
 /**
  * Implements a windowed version of the streaming "WordCount" program.

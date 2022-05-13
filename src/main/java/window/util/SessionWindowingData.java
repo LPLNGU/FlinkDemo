@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package windowing.util;
+package window.util;
 
 /**
  * Data for SessionWindowingITCase.

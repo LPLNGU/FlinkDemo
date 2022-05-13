@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package windowing;
+package window;
 
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;

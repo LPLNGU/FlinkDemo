@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package windowing;
+package window;
 
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.java.tuple.Tuple4;

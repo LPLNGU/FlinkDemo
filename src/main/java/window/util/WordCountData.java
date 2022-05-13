@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package windowing.util;
+package window.util;
 
 /**
  * Provides the default data sets used for the WordCount example program.
