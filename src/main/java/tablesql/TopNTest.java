@@ -44,24 +44,38 @@ public class TopNTest {
                 " proc_time AS PROCTIME()" +
                 ") WITH (" +
                 " 'connector' = 'kafka'," +
-                " 'topic' = 'hsj-sink1'," +
-                " 'properties.bootstrap.servers' = 'kafkasitoltp01broker01.cnsuning.com:9092," +
-                "kafkasitoltp01broker02.cnsuning.com:9092," +
-                "kafkasitoltp01broker03.cnsuning.com:9092'," +
+                " 'topic' = 'hsj-sink123'," +
+                " 'properties.bootstrap.servers' = 'kafkasitoltp01broker01.cnsuning.com:9092,kafkasitoltp01broker02.cnsuning.com:9092,kafkasitoltp01broker03.cnsuning.com:9092'," +
                 " 'format' = 'json'," +
                 " 'scan.startup.mode' = 'latest-offset'" +
                 ")");
-        Table table = tableEnv.sqlQuery("SELECT *\n" +
-                "\tFROM (\n" +
-                "\t\tSELECT *,\n" +
-                "\t\t\tROW_NUMBER() OVER (PARTITION BY windowEnd ORDER BY icount DESC) as row_num -- DESC表示降序\n" +
-                "\t\tFROM (\n" +
-                "\t\t\tSELECT id, sum(number) as icount,\n" +
-                "\t\t\t\t\tTUMBLE_END(proc_time, INTERVAL '20' SECOND) as windowEnd\n" +
-                "\t\t\t\t\tFROM kafkaTable GROUP BY id, TUMBLE(proc_time, INTERVAL '20' SECOND)\n" +
-                "\t\t)\n" +
-                "\t)\n" +
+        Table table = tableEnv.sqlQuery("SELECT * \n" +
+                "FROM (\n" +
+                "    SELECT *, \n" +
+                "    ROW_NUMBER() OVER (PARTITION BY windowEnd ORDER BY icount DESC) as row_num -- DESC表示降序 \n" +
+                "    FROM ( \n" +
+                "        SELECT id, sum(number) as icount, \n" +
+                "            TUMBLE_END(proc_time, INTERVAL '20' SECOND) as windowEnd \n" +
+                "        FROM kafkaTable /*+ OPTIONS('properties.group.id'='BD_hsj-sink1') */\n" +
+                "        GROUP BY id, TUMBLE(proc_time, INTERVAL '20' SECOND)\n" +
+                "    )\n" +
+                ")\n" +
                 "WHERE row_num <= 3");
+
+        //AST
+        System.out.println(tableEnv.explainSql("SELECT * \n" +
+                "FROM (\n" +
+                "    SELECT *, \n" +
+                "    ROW_NUMBER() OVER (PARTITION BY windowEnd ORDER BY icount DESC) as row_num -- DESC表示降序 \n" +
+                "    FROM ( \n" +
+                "        SELECT id, sum(number) as icount, \n" +
+                "            TUMBLE_END(proc_time, INTERVAL '20' SECOND) as windowEnd \n" +
+                "        FROM kafkaTable /*+ OPTIONS('properties.group.id'='BD_hsj-sink1') */\n" +
+                "        GROUP BY id, TUMBLE(proc_time, INTERVAL '20' SECOND)\n" +
+                "    )\n" +
+                ")\n" +
+                "WHERE row_num <= 3"));
+
         DataStream<Tuple2<Boolean, Tuple4<Long, Long, Timestamp, Long>>> retractStream =
                 tableEnv.toRetractStream(table, TypeInformation.of(
                         new TypeHint<Tuple4<Long, Long, Timestamp, Long>>() {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-212.5080.55">
+    <data-source name="10.243.59.137" uuid="96a25caa-d029-4b9e-ac58-af62069f7f20">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>fabu</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="10.243.59.137" uuid="9fc05154-8a46-4324-a071-f1321f0cd4ea">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>fabu</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
